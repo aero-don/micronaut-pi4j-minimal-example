@@ -1,13 +1,5 @@
-## Micronaut 3.1.1 Documentation
+## Micronaut Pi4J Minimal Example
 
-- [User Guide](https://docs.micronaut.io/3.1.1/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.1.1/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.1.1/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
+The Micronaut Pi4J Minimal Example project is a simple Micronaut application runnning the Pi4J V2 code from Frank Delporte's pi4j-example-minimal project.  The goal of this project is to build and run the application as a GraalVM native image on a Raspberry Pi.
 
----
-
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
+- [Frank Delporte's pi4j-example-minimal](https://github.com/Pi4J/pi4j-example-minimal)
