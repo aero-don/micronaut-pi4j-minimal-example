@@ -113,7 +113,6 @@
   "name":"com.pi4j.provider.Provider",
   "methods":[
     {"name":"create","parameterTypes":["com.pi4j.config.Config"] }, 
-    {"name":"describe","parameterTypes":[] }, 
     {"name":"getType","parameterTypes":[] }, 
     {"name":"isType","parameterTypes":["com.pi4j.io.IOType"] }
   ]}
