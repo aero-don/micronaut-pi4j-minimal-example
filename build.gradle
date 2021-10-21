@@ -31,7 +31,8 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
 
     // Pi4J Dependencies
-    implementation("com.pi4j:pi4j-core:2.0")
+    // implementation("com.pi4j:pi4j-core:2.0")
+    implementation(files("lib/pi4j-core-2.1.0-SNAPSHOT.jar"))
     implementation("com.pi4j:pi4j-plugin-pigpio:2.0")
     implementation("com.pi4j:pi4j-plugin-raspberrypi:2.0")
 

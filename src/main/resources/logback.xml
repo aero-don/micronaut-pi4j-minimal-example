@@ -10,6 +10,8 @@
         </encoder>
     </appender>
 
+    <logger name="com.pi4j" level="trace" />
+
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
