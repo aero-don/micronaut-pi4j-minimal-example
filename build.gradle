@@ -38,6 +38,13 @@ application {
     mainClass.set("io.aerotomic.Application")
 }
 
+run {
+    jvmArgs = [
+            "-agentlib:native-image-agent=experimental-class-loader-support,config-output-dir=tmp",
+            "-Dorg.graalvm.nativeimage.imagecode=agent"
+    ]
+}
+
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
     targetCompatibility = JavaVersion.toVersion("11")
