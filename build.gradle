@@ -22,16 +22,21 @@ micronaut {
 
 dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
+
+    compileOnly("org.graalvm.nativeimage:svm")
+
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
     implementation("javax.annotation:javax.annotation-api")
-    runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
 
     // Pi4J Dependencies
     implementation("com.pi4j:pi4j-core:2.0")
     implementation("com.pi4j:pi4j-plugin-pigpio:2.0")
     implementation("com.pi4j:pi4j-plugin-raspberrypi:2.0")
+
+    runtimeOnly("ch.qos.logback:logback-classic")
+
 }
 
 application {
@@ -51,7 +56,7 @@ java {
 }
 
 nativeImage {
-    args "--initialize-at-run-time=com.pi4j.library.pigpio.internal.PIGPIO -H:DynamicProxyConfigurationFiles=./config/native-image/proxy-config.json"
+    args "--initialize-at-run-time=com.pi4j.library.pigpio.internal.PIGPIO -H:DynamicProxyConfigurationFiles=./src/main/resources/groupId/artifactId/app/proxy-config.json -H:DynamicProxyConfigurationResources=./src/main/resources/groupId/artifactId/app/resource-config.json"
 }
 
 
