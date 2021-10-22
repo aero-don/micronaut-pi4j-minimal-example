@@ -1,4 +1,4 @@
-package io.aerotomic;
+package com.pi4j;
 
 import com.pi4j.context.Context;
 import com.pi4j.platform.Platform;

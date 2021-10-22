@@ -1,4 +1,4 @@
-package io.aerotomic
+package com.pi4j
 
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.spock.annotation.MicronautTest

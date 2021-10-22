@@ -1,9 +1,8 @@
-package io.aerotomic;
+package com.pi4j;
 
 import com.pi4j.io.gpio.digital.*;
 import io.micronaut.runtime.Micronaut;
 
-import com.pi4j.Pi4J;
 import com.pi4j.context.Context;
 import com.pi4j.util.Console;
 import org.slf4j.Logger;
