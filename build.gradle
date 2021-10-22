@@ -57,12 +57,7 @@ java {
 }
 
 nativeImage {
-    args = [
-            "--verbose",
-            "-H:DynamicProxyConfigurationFiles=../../src/main/resources/groupId/artifactId/app/proxy-config.json",
-            "-H:JNIConfigurationFiles=../../src/main/resources/groupId/artifactId/app/jni-config.json",
-            "--initialize-at-run-time=com.pi4j.library.pigpio.internal.PIGPIO"
-    ]
+    args = ["--verbose"]
 }
 
 
