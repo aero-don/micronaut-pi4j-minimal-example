@@ -5,7 +5,7 @@ plugins {
 }
 
 version = "0.1"
-group = "io.aerotomic"
+group = "com.pi4j"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ micronaut {
     testRuntime("spock2")
     processing {
         incremental(true)
-        annotations("io.aerotomic.*")
+        annotations("com.pi4j.*")
     }
 }
 
@@ -41,7 +41,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("io.aerotomic.Application")
+    mainClass.set("com.pi4j.Application")
 }
 
 run {
