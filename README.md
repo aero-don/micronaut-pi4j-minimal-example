@@ -81,4 +81,4 @@ The native image build requires approximately 8 GB of RAM to execute.  An attemp
 1. If the `native-image` `application` is built on a host and not the runtime machine, secure copy the `application` file to target machine.
    1. `scp ./build/native-image/application` `<user>@<target ip>:~`
 2. From the user's home directory on the Raspberry Pi target.  The `application` must be executed with `sudo` privileges because the underlying [pigpio](http://abyz.me.uk/rpi/pigpio/) library opens a file descriptor for `/dev/mem`.  The `pi4j.library.path` java system property must be defined when running the native image, so the `application` knows where to find the JNI library.  For simplicity, `libpi4j-pigpio.so` was extracted out of `pi4j-library-pigpio-2.0.jar` and committed to this project's repository in the `./lib` directory.
-   1. `sudo ./application -Dpi4j.library.path=<path to this project on Raspberry Pi>/lib/libpi4j-pigpio.so`
+   1. `sudo ./application -Dpi4j.library.path=<path to this project on Raspberry Pi>/lib`
