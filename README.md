@@ -46,7 +46,7 @@ The steps in this section were performed and the generated configuration files a
 
 1. Clone project on Raspberry Pi
 2. cd project directory
-3. ./gradlew run
+3. sudo ./gradlew run
    1. The `jvmArgs` for the `run` build task in [build.gradle](./build.gradle) configures the GraalVM tracing agent to generate the `native-image` configuration files in the `./tmp` directory.
       1. jni-config.json
       2. predefined-classes-config.json

@@ -1,5 +1,5 @@
 applicationType: default
-defaultPackage: io.aerotomic
+defaultPackage: com.pi4j
 testFramework: spock
 sourceLanguage: java
 buildTool: gradle
