@@ -82,3 +82,36 @@ The native image build requires approximately 8 GB of RAM to execute.  An attemp
    1. `scp ./build/native-image/application` `<user>@<target ip>:~`
 2. From the user's home directory on the Raspberry Pi target.  The `application` must be executed with `sudo` privileges because the underlying [pigpio](http://abyz.me.uk/rpi/pigpio/) library opens a file descriptor for `/dev/mem`.  The `pi4j.library.path` java system property must be defined when running the native image, so the `application` knows where to find the JNI library.  For simplicity, `libpi4j-pigpio.so` was extracted out of `pi4j-library-pigpio-2.0.jar` and committed to this project's repository in the `./lib` directory.
    1. `sudo ./application -Dpi4j.library.path=<path to this project on Raspberry Pi>/lib`
+
+## Docker 
+
+### Dockerfile 
+```
+FROM arm64v8/fedora:34
+COPY ./build/native-image/application /app/application
+COPY ./lib/* /usr/local/lib/   
+RUN ln -s /usr/local/lib/libpigpio.so.1 /usr/local/lib/libpigpio.so
+RUN ln -s /usr/local/lib/libpigpio_if.so.1 /usr/local/lib/libpigpio_if.so
+RUN ln -s /usr/local/lib/libpigpio_if2.so.1 /usr/local/lib/libpigpio_if2.so
+ENV LD_LIBRARY_PATH=/usr/local/lib
+ENTRYPOINT ["/app/application", "-Dpi4j.library.path=/usr/local/lib"]
+```
+
+### Docker build
+```
+docker build -t pi4j/pi4j-minimal-example:latest .
+```
+
+### Docker save
+```
+docker save pi4j/pi4j-minimal-example:latest | gzip > pi4j_minimal_example_latest.tar.gz
+```
+
+### Docker load
+```
+docker load < pi4j_minimal_example_latest.tar.gz
+```
+### Docker run
+```
+docker run --cap-add=SYS_RAWIO --device=/dev/mem:/dev/mem --device=/dev/i2c-1:/dev/i2c-1 --device=/dev/vcio:/dev/vcio pi4j/pi4j-minimal-example:latest
+```
